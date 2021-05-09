@@ -1,0 +1,6 @@
+﻿@model CarRental.Model.Entities.RentFormViewModel
+
+<div class="form-group">
+
+    <label><b>Total price</b>@((Model.EndDate - Model.EndDate).TotalDays*Model.Car.PricePerDay)</label>
+</div>

@@ -1,0 +1,37 @@
+﻿@model CarRental.Model.Entities.RentFormViewModel
+
+<h1 class="mainColor">Add a car</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="RentForm" asp-action="CreateForm" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h4>Car:</h4>
+            <div class="form-group">
+                <label><b>Model:</b></label>
+                <label>@Model.Car.Model</label>
+            </div>
+            <div class="form-group">
+                <label><b>Price per day:</b></label>
+                <label>@Model.Car.PricePerDay</label>
+            </div>
+
+            <h4>Rent Information:</h4>
+            <div class="form-group">
+                <input asp-for="@Model.StartDate" value="Model" class="form-control" style="width: 250px;" />
+                <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="@Model.EndDate" value="Model" class="form-control" style="width: 250px;" />
+                <span asp-validation-for="@Model.EndDate" class="text-danger"></span>
+            </div>
+            <div>
+                <partial name="../Shared/RentPrice.cshtml" model=@Model />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" style="width: 250px;" />
+            </div>
+        </form>
+    </div>
+</div>
+

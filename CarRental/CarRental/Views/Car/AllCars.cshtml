@@ -1,0 +1,54 @@
+﻿@model ICollection<CarRental.Model.Entities.CarViewModel>
+<input type="button" value="Add car" class="btn btn-primary" onclick="location.href='@Url.Action("CreateCar", "Car")'" />
+<h1>Cars for rent</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Model
+            </th>
+            <th>
+                Price per day
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+
+            <tr>
+                <td>
+                    @car.Model
+                </td>
+                <td>
+                    @car.PricePerDay
+                </td>
+                <td>
+                    <a asp-controller="Car" asp-action="EditCar" asp-route-carId="@car.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Car" asp-action="DeleteCar" asp-route-carId="@car.Id">Delete</a>
+                </td>
+                <td>
+                    <a asp-controller="Car" asp-action="DetailsCar" asp-route-carId="@car.Id">Details</a>
+                </td>
+                <td>
+                    @if (car.IsRented == false)
+                    {
+                        <a asp-controller="RentForm" asp-action="CreateForm" asp-route-carId="@car.Id">Rent</a>
+                    }
+                    else
+                    {
+                        <a>Rented</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+

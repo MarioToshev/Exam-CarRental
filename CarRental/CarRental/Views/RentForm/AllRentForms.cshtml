@@ -1,0 +1,56 @@
+﻿@model ICollection<CarRental.Model.Entities.RentFormViewModel>
+<h1>Rent forms</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Start date
+            </th>
+            <th>
+                End date
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                TotalPrice
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var form in Model)
+        {
+
+        <tr>
+            <td>
+                @form.StartDate
+            </td>
+            <td>
+                @form.EndDate
+            </td>
+            <td>
+                @form.Status
+            <td>
+            <td>
+                @form.TotalPrice
+            <td>
+                <a asp-controller="RentForm" asp-action="ReturnCar" asp-route-carId="@form.Car.Id" asp-route-formId="@form.Id">Return</a>
+            </td>
+            @*<td>
+                <a asp-controller="Car" asp-action="DeleteCar" asp-route-carId="@form.Id">Delete</a>
+            </td>
+            <td>
+                <a asp-controller="Car" asp-action="DetailsCar" asp-route-carId="@form.Id">Details</a>
+            </td>
+            <td>
+                <a asp-controller="RentForm" asp-action="RentCar" asp-route-carId="@form.Id">Rent</a>
+            </td>*@
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
