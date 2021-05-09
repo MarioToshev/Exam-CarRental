@@ -1,3 +1,2 @@
-Всички юзъри се създават като админи
-за да се тестват клиентите отидете на ../Administration/AllUsers за да смените ролите от админ на клиент:Д
-
+All users are created as admins
+to test clients go to ../Administration/AllUsers to change user roles :D
